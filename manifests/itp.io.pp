@@ -1,5 +1,10 @@
 node "itp.io" {
 
+  package { "nginx":
+    name => "nginx",
+    ensure => "installed"
+  }
+
   package { "postfix":
     name => "postfix",
     ensure => "installed"
