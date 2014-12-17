@@ -4,4 +4,9 @@ node "itp.io" {
     name => "postfix",
     ensure => "installed"
   }
+
+  package { "pound":
+    name => "pound",
+    ensure => "installed"
+  }
 }
