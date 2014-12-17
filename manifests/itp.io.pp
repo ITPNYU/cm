@@ -9,4 +9,9 @@ node "itp.io" {
     name => "pound",
     ensure => "installed"
   }
+
+  package { "varnish":
+    name => "varnish",
+    ensure => "installed"
+  }
 }
