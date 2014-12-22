@@ -1,4 +1,5 @@
 class { 'apache': }
+class {'::apache::mod::php': }
 
 include '::mysql::server'
 include '::mysql::server::account_security'
