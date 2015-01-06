@@ -2,7 +2,7 @@ class { 'apache':
   mpm_module => 'prefork'
 }
 class { '::apache::mod::php': }
-class { '::apache::mod::rewrite': }
+include '::apache::mod::rewrite'
 
 include '::mysql::server'
 include '::mysql::server::account_security'
