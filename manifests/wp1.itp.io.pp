@@ -2,7 +2,6 @@ class { 'apache':
   default_vhost => false,
   mpm_module => 'prefork',
   serveradmin => 'helpdesk@itp.nyu.edu',
-  servername => 'itp.io',
   server_signature => 'Off',
 }
 
@@ -21,6 +20,7 @@ apache::vhost { '*:80':
       options => ['Indexes', 'FollowSymLinks', 'MultiViews'],
     },
   ],
+  servername => 'itp.io',
 }
 
 include '::mysql::server'
