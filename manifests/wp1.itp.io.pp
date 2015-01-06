@@ -8,7 +8,7 @@ class { 'apache':
 class { '::apache::mod::php': }
 class { '::apache::mod::rewrite': }
 
-apache::vhost { 'default':
+apache::vhost { 'wp1':
   docroot => '/var/www',
   directories => [
     { path => '/var/www',
