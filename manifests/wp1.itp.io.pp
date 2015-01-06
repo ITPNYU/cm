@@ -1,6 +1,8 @@
 class { 'apache':
   default_vhost => false,
-  mpm_module => 'prefork'
+  mpm_module => 'prefork',
+  serveradmin => 'helpdesk@itp.nyu.edu',
+  server_signature => 'Off',
 }
 
 class { '::apache::mod::php': }
@@ -18,8 +20,6 @@ apache::vhost { '*':
       options => ['Indexes', 'FollowSymLinks', 'MultiViews'],
     },
   ],
-  serveradmin => 'helpdesk@itp.nyu.edu',
-  server_signature => 'Off',
 }
 
 include '::mysql::server'
