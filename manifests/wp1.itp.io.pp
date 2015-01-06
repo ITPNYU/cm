@@ -1,8 +1,26 @@
 class { 'apache':
+  default_vhost => false,
   mpm_module => 'prefork'
 }
+
 class { '::apache::mod::php': }
-include '::apache::mod::rewrite'
+class { '::apache::mod::rewrite': }
+
+apache::vhost { '*':
+  docroot => '/var/www',
+  directories => [
+    { path => '/var/www',
+      allow_override => ['None'],
+      options => ['Indexes', 'FollowSymLinks', 'MultiViews'],
+    },
+    { path => '/var/www/thesis',
+      allow_override => ['All'],
+      options => ['Indexes', 'FollowSymLinks', 'MultiViews'],
+    },
+  ],
+  serveradmin => 'helpdesk@itp.nyu.edu',
+  server_signature => 'Off',
+}
 
 include '::mysql::server'
 include '::mysql::server::account_security'
