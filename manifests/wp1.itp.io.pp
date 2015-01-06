@@ -8,7 +8,7 @@ class { 'apache':
 class { '::apache::mod::php': }
 class { '::apache::mod::rewrite': }
 
-apache::vhost { '*:80':
+apache::vhost { 'default':
   docroot => '/var/www',
   directories => [
     { path => '/var/www',
@@ -21,6 +21,8 @@ apache::vhost { '*:80':
     },
   ],
   servername => 'itp.io',
+  vhost_name => '*',
+  port => '80',
 }
 
 include '::mysql::server'
