@@ -2,6 +2,7 @@ class { 'apache':
   default_vhost => false,
   mpm_module => 'prefork',
   serveradmin => 'helpdesk@itp.nyu.edu',
+  servername => 'itp.io',
   server_signature => 'Off',
 }
 
