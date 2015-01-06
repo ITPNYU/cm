@@ -8,7 +8,7 @@ class { 'apache':
 class { '::apache::mod::php': }
 class { '::apache::mod::rewrite': }
 
-apache::vhost { '*':
+apache::vhost { '*:80':
   docroot => '/var/www',
   directories => [
     { path => '/var/www',
