@@ -34,4 +34,4 @@ class { 'mysql::bindings':
 
 package {'libssh2-php': ensure => 'installed' }
 package {'php5-gd': ensure => 'installed' }
-package {'php-http': ensure => 'installed' }
+package {'php-http-request2': ensure => 'installed' }
