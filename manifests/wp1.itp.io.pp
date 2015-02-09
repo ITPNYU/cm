@@ -25,8 +25,12 @@ apache::vhost { 'wp1':
     },
   ],
   servername => 'itp.io',
+  ssl => true,
+  ssl_cert => '/etc/ssl/private/www.itp.io.crt',
+  ssl_chain => '/etc/ssl/private/www.itp.io.pem',
+  ssl_key => '/etc/ssl/private/www.itp.io.key',
   vhost_name => '*',
-  port => '80',
+  port => '443',
 }
 
 include '::mysql::server'
