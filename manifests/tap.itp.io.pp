@@ -31,16 +31,10 @@ apache::vhost { 'tap':
   port => '443',
 }
 
+# you have to manually add user www-data to ssl-cert group
 group { 'ssl-cert':
   name => 'ssl-cert',
   ensure => 'present',
-}
-
-user { 'www-data':
-  name => 'www-data',
-  membership => 'minimum',
-  groups => 'ssl-cert',
-  require => Package['apache2'],
 }
 
 file { '/etc/ssl/private':
