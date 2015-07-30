@@ -1,3 +1,7 @@
+# install the puppetlabs-apache and puppetlabs-mysql modules, e.g.
+# puppet module install puppetlabs-apache 
+# puppet module install puppetlabs-mysql
+
 class { 'apache':
   default_vhost => false,
   mpm_module => 'prefork',
