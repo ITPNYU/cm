@@ -16,13 +16,10 @@ apache::vhost { 'tap':
   docroot => '/var/www/html',
   directories => [
     { path => '/var/www/html',
-      allow_override => ['None'],
-    },
-    { path => '/var/www/html/tap',
       allow_override => ['All'],
     },
   ],
-  servername => 'itp.io',
+  servername => 'tap.itp.io',
   ssl => true,
   ssl_cert => '/etc/ssl/private/www.itp.io.crt',
   ssl_chain => '/etc/ssl/private/www.itp.io.pem',
@@ -76,5 +73,6 @@ class { 'mysql::bindings':
   php_enable => true
 }
 
+package {'php5-curl': ensure => 'installed' }
 package {'php5-gd': ensure => 'installed' }
 package {'postfix': ensure => 'installed' }
